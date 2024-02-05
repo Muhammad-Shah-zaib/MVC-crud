@@ -1,0 +1,32 @@
+﻿@model Category
+
+<form method="post">
+    <div class="border bg-primary p-3 mt-4">
+        <div class="row p-2">
+            <h2 class="text-secondary">Create Category</h2>
+            <hr/>
+        </div>
+
+        <div class="row mt-2">
+            <div class="text-danger" asp-validation-for="CustomError"></div>
+            @* Nameinput*@
+            <input asp-for="Name" placeholder="Name..." class="form-control bg-dark text-light my-1" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+
+            @* Display order input*@
+            <input asp-for="DisplayOrder" placeholder="Name..." class="form-control bg-dark text-light my-1" />
+            <span class="text-danger" asp-validation-for="DisplayOrder"></span>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info" style="width: 150px;">Create </button>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-info" style="width: 150px;">Back to list</a>
+    </div>
+</form>
+
+
+@* Adding validation script for client side validations *@
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
